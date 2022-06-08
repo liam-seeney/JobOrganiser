@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using JobOrganiserWebApp.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<JobOrganiserWebAppContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("JobOrganiserWebAppContext") ?? throw new InvalidOperationException("Connection string 'JobOrganiserWebAppContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
