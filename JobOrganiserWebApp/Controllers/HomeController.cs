@@ -15,7 +15,13 @@ namespace JobOrganiserWebApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var currentJob = new JobInfo()
+            {
+                Id = 12,
+                JobTitle = "Fix Door",
+                JobDescription = "Replace hinges on bathroom door in bungalow."
+            };
+            return View(currentJob);
         }
 
         public IActionResult Privacy()
