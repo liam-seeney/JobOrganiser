@@ -6,6 +6,6 @@
         public string? JobTitle { get; set; }
         public string? JobDescription { get; set; }
         public DateTime EstCompletionDate { get; set; }
-        public Customer? CustomerName { get; set; }
+        public string? CustomerName { get; set; }
     }
 }

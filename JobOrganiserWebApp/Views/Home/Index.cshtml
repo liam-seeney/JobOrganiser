@@ -12,6 +12,7 @@
         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
                 <h3>@Model.JobTitle</h3>
+                <h4>Customer: @Model.CustomerName</h4>
                 <p>@Model.JobDescription</p>
                 <a class="btn btn-primary" asp-controller="Customers" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
             </div>

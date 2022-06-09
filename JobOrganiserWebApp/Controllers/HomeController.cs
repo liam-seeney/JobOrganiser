@@ -15,11 +15,18 @@ namespace JobOrganiserWebApp.Controllers
 
         public IActionResult Index()
         {
+            var _name = new Customer()
+            {
+                FirstName = "John",
+                LastName = "Smith"
+            };
+
             var currentJob = new JobInfo()
             {
                 Id = 12,
                 JobTitle = "Fix Door",
-                JobDescription = "Replace hinges on bathroom door in bungalow."
+                JobDescription = "Replace hinges on bathroom door in bungalow.",
+                CustomerName = _name.FullName()
             };
             return View(currentJob);
         }
