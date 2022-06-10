@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using JobOrganiserWebApp.Data;
+using JobOrganiserWebApp.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<JobOrganiserWebAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("JobOrganiserWebAppContext") ?? throw new InvalidOperationException("Connection string 'JobOrganiserWebAppContext' not found.")));
@@ -9,6 +11,13 @@ builder.Services.AddDbContext<JobOrganiserWebAppContext>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

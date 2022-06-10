@@ -15,5 +15,7 @@ namespace JobOrganiserWebApp.Data
         }
 
         public DbSet<JobOrganiserWebApp.Models.Customer>? Customer { get; set; }
+
+        public DbSet<JobOrganiserWebApp.Models.JobInfo>? JobInfo { get; set; }
     }
 }
