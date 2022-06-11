@@ -14,7 +14,6 @@ namespace JobOrganiserWebApp.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<JobOrganiserWebAppContext>>()))
             {
-                // Look for any movies.
                 if (context.Customer.Any() && context.JobInfo.Any())
                 {
                     return;   // DB has been seeded
